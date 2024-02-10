@@ -9,6 +9,9 @@ class PlanDTO {
   String? _sellingPriceOfProducts;
   String? _analysisOfTheMarketSituation;
   String? _theAmountOfDomesticProduction;
+  String? _countrysNeed;
+  String? _nominalCapacityOfExistingActiveUnits;
+  String? _theNominalCapacityOfProjectsInProgress;
   String? _landArea;
   String? _technicalKnowledge;
   String? _water;
@@ -38,6 +41,9 @@ class PlanDTO {
         String? sellingPriceOfProducts,
         String? analysisOfTheMarketSituation,
         String? theAmountOfDomesticProduction,
+        String? countryNeed,
+        String? nominalCapacityOfExistingActiveUnits,
+        String? theNominalCapacityOfProjectsInProgress,
         String? landArea,
         String? technicalKnowledge,
         String? water,
@@ -85,6 +91,15 @@ class PlanDTO {
     }
     if (theAmountOfDomesticProduction != null) {
       _theAmountOfDomesticProduction = theAmountOfDomesticProduction;
+    }
+    if (countryNeed != null){
+      _countrysNeed = countryNeed;
+    }
+    if(nominalCapacityOfExistingActiveUnits != null){
+      _nominalCapacityOfExistingActiveUnits = nominalCapacityOfExistingActiveUnits;
+    }
+    if(theNominalCapacityOfProjectsInProgress != null){
+      _theNominalCapacityOfProjectsInProgress = theNominalCapacityOfProjectsInProgress;
     }
     if (landArea != null) {
       _landArea = landArea;
@@ -143,6 +158,26 @@ class PlanDTO {
 
   set imagePath(String? value) {
     _imagePath = value;
+  }
+
+  String? get countrysNeed => _countrysNeed;
+
+  set countrysNeed(String? value) {
+    _countrysNeed = value;
+  }
+
+  String? get theNominalCapacityOfProjectsInProgress =>
+      _theNominalCapacityOfProjectsInProgress;
+
+  set theNominalCapacityOfProjectsInProgress(String? value) {
+    _theNominalCapacityOfProjectsInProgress = value;
+  }
+
+  String? get nominalCapacityOfExistingActiveUnits =>
+      _nominalCapacityOfExistingActiveUnits;
+
+  set nominalCapacityOfExistingActiveUnits(String? value) {
+    _nominalCapacityOfExistingActiveUnits = value;
   }
 
   String? get planName => _planName;
@@ -225,6 +260,9 @@ class PlanDTO {
     _sellingPriceOfProducts = json['Selling_price_of_products'];
     _analysisOfTheMarketSituation = json['Analysis_of_the_market_situation'];
     _theAmountOfDomesticProduction = json['The_amount_of_domestic_production'];
+    _countrysNeed = json['countrys_need'];
+    _nominalCapacityOfExistingActiveUnits = json['nominal_capacity_of_existing_active_units'];
+    _theNominalCapacityOfProjectsInProgress = json['the_nominal_capacity_of_projects_in_progress'];
     _landArea = json['land_area'];
     _technicalKnowledge = json['Technical_knowledge'];
     _water = json['water'];
@@ -259,6 +297,9 @@ class PlanDTO {
         _analysisOfTheMarketSituation;
     data['The_amount_of_domestic_production'] =
         _theAmountOfDomesticProduction;
+    data['countrys_need'] = _countrysNeed;
+    data['nominal_capacity_of_existing_active_units'] = _nominalCapacityOfExistingActiveUnits;
+    data['the_nominal_capacity_of_projects_in_progress'] = _theNominalCapacityOfProjectsInProgress;
     data['land_area'] = _landArea;
     data['Technical_knowledge'] = _technicalKnowledge;
     data['water'] = _water;
@@ -280,4 +321,6 @@ class PlanDTO {
     data['image'] = _imagePath;
     return data;
   }
+
+
 }

@@ -10,8 +10,11 @@ final PlanRemoteRepository planRepository = PlanRemoteRepository(
 
 abstract class IPlanRepository {
   Future<void> createPlan(PlanDTO plan);
+  Future<void> deletePlan(PlanDTO plan);
   Future<String> getImage(FormData formData);
   Future<List<PlanDTO>> getAllPlan();
+  Future<void> updatePlan(Map<String,dynamic> changes);
+  Future<List<PlanDTO>> getInvestorPlan(String number);
 }
 
 class PlanRemoteRepository implements IPlanRepository {
@@ -34,6 +37,24 @@ class PlanRemoteRepository implements IPlanRepository {
   @override
   Future<String> getImage(FormData formData) {
     return dataSource.getImage(formData);
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<void> deletePlan(PlanDTO plan) {
+    return dataSource.deletePlan(plan);
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<void> updatePlan(Map<String, dynamic> changes) {
+    return dataSource.updatePlan(changes);
+    throw UnimplementedError();
+  }
+
+  @override
+  Future<List<PlanDTO>> getInvestorPlan(String number) {
+    return dataSource.getInvestorPlan(number);
     throw UnimplementedError();
   }
 }

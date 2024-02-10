@@ -28,3 +28,27 @@ class GetAllUserFailureExc implements Exception{
 class GetImageFailureExc implements Exception{
   final String message = "اپلود عکس با مشکل مواجه شد";
 }
+
+class GetAllUserNotFoundExc implements Exception{
+  final String message = "کاربری برای نمایش وجود ندارد";
+}
+
+class DeletePlanExc implements Exception{
+  final String message = "حذف با مشکل مواجه شده است";
+}
+
+class UpdateUserNotFoundExc implements Exception{
+  final String message = "طرحی برای بروزرسانی یافت نشد";
+}
+
+class UpdateUserFailureExc implements Exception{
+  final String message = "بروزرسانی با مشکل مواجه شد";
+}
+
+class GetInvestorPlanNotFoundExc implements Exception{
+  final String message = "کاربر طرحی برای سرمایه گذاری ندارد";
+}
+
+class GetInvestorPlanExc implements Exception{
+  final String message = "دریافت طرح های سرمایه گذاری شده با مشکل مواجه شد";
+}

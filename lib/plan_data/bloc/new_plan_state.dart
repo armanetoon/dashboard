@@ -32,3 +32,4 @@ final class GetImageFailure extends NewPlanState{
 
   GetImageFailure({required this.message});
 }
+

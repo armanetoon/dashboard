@@ -5,7 +5,7 @@ import 'package:dashboard/user_data/userDTO.dart';
 final UserRemoteRepository userRepository = UserRemoteRepository(dataSource: UserRemoteDataSource(httpClient: httpClient));
 
 abstract class IUserRepository{
-  Future<List<UserDTO>> getAllUser();
+  Future<List<UserDTO>> getAllUser(bool normal);
 }
 
 class UserRemoteRepository implements IUserRepository{
@@ -14,8 +14,8 @@ class UserRemoteRepository implements IUserRepository{
   UserRemoteRepository({required this.dataSource});
 
   @override
-  Future<List<UserDTO>> getAllUser() {
-    return dataSource.getAllUser();
+  Future<List<UserDTO>> getAllUser(bool normal) {
+    return dataSource.getAllUser(normal);
   }
 
 

@@ -3,7 +3,7 @@ import 'package:dio/dio.dart';
 import 'package:dashboard/user_data/userDTO.dart';
 
 abstract class IUserDataSource {
-  Future<List<UserDTO>> getAllUser();
+  Future<List<UserDTO>> getAllUser(bool normal);
 }
 
 class UserRemoteDataSource implements IUserDataSource {
@@ -12,12 +12,18 @@ class UserRemoteDataSource implements IUserDataSource {
   UserRemoteDataSource({required this.httpClient});
 
   @override
-  Future<List<UserDTO>> getAllUser() async {
+  Future<List<UserDTO>> getAllUser(bool normal) async {
     try {
-      final result = await httpClient.get('/AllUser');
+      final Response result;
+      if(normal){
+        result = await httpClient.get('/AllUser');
+      }
+      else{
+        result = await httpClient.get('/GetAllInvestor');
+      }
       List<UserDTO> users = [];
       for (var item in result.data) {
-        //users.add(UserDTO.fromJson(item));
+        users.add(UserDTO.fromJson(item));
       }
       return users;
     } on DioException catch (dioException) {
